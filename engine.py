@@ -66,7 +66,7 @@ PUZZLES = [
         "fen": "2r3k1/p4p1p/1p2p1p1/8/3P4/4P3/q4PPP/2Q3K1 w - - 0 1",
         "solution": ["c1c8"], "goal": "White to move, Win a Rook"
     },
-    { # This puzzle is now corrected with the full sequence
+    { 
         "fen": "r3k2r/ppp1q1pp/2np4/2b1p3/2B1P1b1/2PP1N2/P1P2PP1/R1BQ1RK1 w kq - 0 1",
         "solution": ["c4f7", "e8f7", "f3g5"], "goal": "White to move, Win the Queen"
     },
@@ -127,4 +127,5 @@ def get_best_move_ai(board, depth=3):
     if len(board.move_stack) < 4:
         move = get_opening_move(board)
         if move and move in board.legal_moves: return move
+
     return minimax(board, depth, -float('inf'), float('inf'), board.turn == chess.WHITE)[1]
