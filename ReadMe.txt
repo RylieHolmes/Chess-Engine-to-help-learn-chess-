@@ -1,3 +1,5 @@
+# My Python Chess Trainer
+
 This is a chess trainer I built from scratch using Python and Pygame. I wanted to create a full-featured application to practice my skills, so it's more than just a game. You can play against a custom AI I wrote or switch to a Puzzle Mode to practice tactics.
 
 ### Features I Implemented:
