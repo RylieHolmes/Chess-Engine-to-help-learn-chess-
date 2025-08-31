@@ -138,12 +138,12 @@ class Game:
         else:
             from_sq = self.player_clicks[0]
             
-            # Case 1: User clicked the same piece again to de-select it
+            
             if from_sq == square_clicked:
                 self.clear_selection()
                 return
 
-            # Case 2: User clicked another one of their own pieces to switch selection
+            
             new_piece = self.board.piece_at(square_clicked)
             if new_piece and new_piece.color == self.board.turn:
                 self.clear_selection()
@@ -152,7 +152,7 @@ class Game:
                 self.legal_moves_for_selected = [m.to_square for m in self.board.legal_moves if m.from_square == square_clicked]
                 return
 
-            # Case 3: User clicked a destination square for a move
+            
             move_uci = chess.square_name(from_sq) + chess.square_name(square_clicked)
             piece_to_move = self.board.piece_at(from_sq)
             if piece_to_move.piece_type == chess.PAWN and (row == 0 or row == 7):
@@ -361,4 +361,5 @@ class Game:
         text_surf = FONT_LARGE.render(text, True, color)
         text_rect = text_surf.get_rect(center=(BOARD_SIZE / 2, HEIGHT / 2))
         self.screen.blit(overlay, (0,0))
+
         self.screen.blit(text_surf, text_rect)
